@@ -73,8 +73,6 @@ spec:
       params:
         - name: IMAGE
           value: $(params.build-image)
-        - name: SKIP_PUSH
-          value: "true"
       runAfter:
         - tests
 
@@ -86,9 +84,3 @@ spec:
           value: "Deploying $(params.branch) branch of $(params.repo-url) ..."
       runAfter:
         - build
-# tkn pipeline start cd-pipeline \
-#   -p repo-url="https://github.com/ibm-developer-skills-network/wtecc-CICD_PracticeCode.git" \
-#   -p branch="main" \
-#   -p build-image="image-registry.openshift-image-registry.svc:5000/default/tekton-lab:latest" \
-#   -w name=pipeline-workspace,claimName=pipelinerun-pvc \
-#   --showlog
